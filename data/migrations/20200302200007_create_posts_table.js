@@ -16,7 +16,9 @@ exports.up = function(knex) {
     posts.string('body', 256).notNullable();
     //Img_URL
     posts.string('img_url').notNullable();
-    //Time Stemp
+    // //Date
+    // posts.date('post_date').notNullable();
+    //Time Stamp
     posts.timestamp('created_date').defaultTo(knex.fn.now()).notNullable();
   })
 };

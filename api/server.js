@@ -24,7 +24,7 @@ server.use('/api/posts', logger, restricted, postsRouter);
 
 //sanity check
 server.get('/', logger, (req, res) =>{
-    res.status(200).json({message: 'Wake Up, Neo'})
+    res.status(200).json({message: 'Server up and running'})
 })
 
 //export module

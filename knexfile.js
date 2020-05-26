@@ -15,15 +15,16 @@ const database = {
   };
 
 module.exports = {
-  development:{
-    ...database,
+  development: {
+    client: 'sqlite3',
     connection: {
-      port: 5432,
-      database: 'memories-us',
-      user: 'postgres',
-      password: 'Dreamer6am!'
+      filename: './data/database.db3'
     },
-    tableName: 'knex_migrations'
+    useNullAsDefault: true,
+    migrations: {
+      directory: './data/migrations',
+    },
+    seeds: { directory: './data/seeds' },
   },
 
   // testing: {
