@@ -54,13 +54,13 @@ router.put('/:id', (req,res) =>{
             .then(updated =>{
                 res.status(201).json({success: 'updated', id: user.id, updated: updatedUser})
             })
-        }else if(user && (!bcrypt.compareSync(updatedUser.password, user.password))){
-            console.log('user password was changed')
-            const hash = bcrypt.hashSync(updatedUser.password, 8); //hashes the updated password
-            updatedUser.password = hash; //sets updated user password value to hashed password
-            Users.update(updatedUser, id).then(updated =>{
-                res.status(201).json({success: 'updated', id: user.id, updated: updatedUser})
-            })
+        // }else if(user && (!bcrypt.compareSync(updatedUser.password, user.password))){
+        //     console.log('user password was changed')
+        //     const hash = bcrypt.hashSync(updatedUser.password, 8); //hashes the updated password
+        //     updatedUser.password = hash; //sets updated user password value to hashed password
+        //     Users.update(updatedUser, id).then(updated =>{
+        //         res.status(201).json({success: 'updated', id: user.id, updated: updatedUser})
+        //     })
         }else{
             res.status(401).json({message: `Could Not Find User With ID: ${id}`})
         }
